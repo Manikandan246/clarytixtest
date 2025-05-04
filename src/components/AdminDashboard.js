@@ -13,7 +13,7 @@ function AdminDashboard() {
     useEffect(() => {
         const fetchQuizzes = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/admin/quizzes?schoolId=${schoolId}`);
+                const response = await fetch(`https://clarytix-backend.onrender.com/admin/quizzes?schoolId=${schoolId}`);
                 const data = await response.json();
                 if (data.success) {
                     setQuizzes(data.availableQuizzes);

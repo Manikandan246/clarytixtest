@@ -13,7 +13,7 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/quiz/questions?topicId=${topicId}`);
+                const response = await fetch(`https://clarytix-backend.onrender.com/quiz/questions?topicId=${topicId}`);
                 const data = await response.json();
                 if (data.success) {
                     setQuestions(data.questions);

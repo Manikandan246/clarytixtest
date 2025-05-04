@@ -13,7 +13,8 @@ function StudentDashboard() {
     useEffect(() => {
         const fetchQuizzes = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/student/quizzes?studentId=${studentId}`);
+                const response = await fetch(`https://clarytix-backend.onrender.com/student/quizzes?studentId=${studentId}`);
+
                 const data = await response.json();
                 if (data.success && Array.isArray(data.availableQuizzes)) {
                     setAvailableQuizzes(data.availableQuizzes);
