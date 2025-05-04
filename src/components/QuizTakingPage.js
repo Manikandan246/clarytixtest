@@ -52,7 +52,7 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
         }));
 
         try {
-            const response = await fetch('http://localhost:5000/quiz/submit', {
+            const response = await fetch('https://clarytix-backend.onrender.com/quiz/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
