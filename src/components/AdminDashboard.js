@@ -17,7 +17,7 @@ function AdminDashboard() {
     // Fetch subjects when class changes
     useEffect(() => {
         if (selectedClass) {
-            fetch(`https://clarytix-backend.onrender.com/school-subjects?schoolId=${schoolId}&class=${selectedClass}`)
+            fetch(`https://clarytix-backend.onrender.com/admin/subjects?schoolId=${schoolId}&className=${selectedClass}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) setSubjects(data.subjects);
@@ -32,7 +32,7 @@ function AdminDashboard() {
     // Fetch topics when subject changes
     useEffect(() => {
         if (selectedClass && selectedSubject) {
-            fetch(`https://clarytix-backend.onrender.com/school-topics?schoolId=${schoolId}&class=${selectedClass}&subject=${selectedSubject}`)
+            fetch(`https://clarytix-backend.onrender.com/admin/topics?schoolId=${schoolId}&className=${selectedClass}&subjectId=${selectedSubject}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) setTopics(data.topics);
@@ -77,9 +77,9 @@ function AdminDashboard() {
                             disabled={!selectedClass}
                         >
                             <option value="">Subject</option>
-                            {subjects.map((subject, index) => (
-                                <option key={index} value={subject}>
-                                    {subject}
+                            {subjects.map((subject) => (
+                                <option key={subject.id} value={subject.id}>
+                                    {subject.name}
                                 </option>
                             ))}
                         </select>
