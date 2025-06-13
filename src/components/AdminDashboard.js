@@ -9,7 +9,7 @@ function AdminDashboard() {
     const [selectedSubject, setSelectedSubject] = useState('');
     const [topics, setTopics] = useState([]);
     const [selectedTopic, setSelectedTopic] = useState('');
-    const [topicId, setTopicId] = useState(null);
+    
 
     const navigate = useNavigate();
     const schoolLogo = localStorage.getItem('schoolLogoUrl');
