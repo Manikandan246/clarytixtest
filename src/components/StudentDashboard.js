@@ -43,7 +43,10 @@ function StudentDashboard() {
                 <h1 className="welcome">Hi, {studentName}</h1>
 
                 <section>
-                    <h2 className="section-title">Available Quizzes</h2>
+                  <h2 className="section-title" style={{ textAlign: 'left' }}>
+  Available Quizzes ({availableQuizzes.length})
+</h2>
+
                     <div className="quiz-cards-wrapper">
                         {Array.isArray(availableQuizzes) && availableQuizzes.length > 0 ? (
                             availableQuizzes.map((quiz) => (
