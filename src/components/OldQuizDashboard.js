@@ -15,8 +15,8 @@ function OldQuizDashboard() {
             try {
                 const response = await fetch(`https://clarytix-backend.onrender.com/student/old-quizzes?studentId=${studentId}`);
                 const data = await response.json();
-                if (data.success && Array.isArray(data.quizHistory)) {
-                    setQuizHistory(data.quizHistory);
+                if (data.success && Array.isArray(data.oldQuizzes)) {
+                    setQuizHistory(data.oldQuizzes);
                 } else {
                     setQuizHistory([]);
                     console.warn('Unexpected quiz history data:', data);
@@ -55,8 +55,8 @@ function OldQuizDashboard() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {Array.isArray(quizHistory) && quizHistory.length > 0 ? (
-                                    quizHistory.map((quiz) => (
+                                {Array.isArray(oldQuizzes) && quizHistory.length > 0 ? (
+                                    oldQuizzes.map((quiz) => (
                                         <tr key={quiz.topic_id}>
                                             <td>{quiz.subject}</td>
                                             <td>{quiz.topic}</td>
