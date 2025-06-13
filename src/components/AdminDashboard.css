@@ -1,117 +1,72 @@
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f6fa;
-}
-
 .admin-dashboard-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 30px 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    padding: 20px;
 }
 
 .school-logo-full {
-    width: 200px;
-    display: block;
-    margin: 0 auto 20px;
-    object-fit: contain;
+    max-width: 250px;
+    margin-bottom: 20px;
 }
 
 .admin-welcome {
     font-size: 24px;
-    text-align: center;
     margin-bottom: 30px;
-    color: #333;
 }
 
-.section-title {
+.performance-section {
+    margin-bottom: 30px;
+}
+
+.section-header {
     font-size: 20px;
-    margin-bottom: 16px;
-    color: #222;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 6px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.section {
-    margin-bottom: 40px;
-}
-
-.form-row {
+.filters-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    justify-content: center;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
-.dropdown-field {
-    flex: 1 1 150px;
-}
-
-.dropdown-field label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: 500;
-}
-
-.dropdown-field select {
-    width: 100%;
-    padding: 8px;
+.dropdown {
+    padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
-    font-size: 14px;
-    background-color: #fff;
+    font-size: 16px;
+    min-width: 140px;
 }
 
-.track-button {
+.track-btn {
     background-color: #007bff;
     color: white;
-    padding: 10px 16px;
-    font-size: 15px;
     border: none;
+    padding: 10px 14px;
     border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
-    margin-top: 24px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-.track-button:disabled {
-    background-color: #cccccc;
+.track-btn:disabled {
+    background-color: #a9a9a9;
     cursor: not-allowed;
 }
 
-.track-button:hover:not(:disabled) {
-    background-color: #0056b3;
-}
-
 .logout-container {
-    margin-top: 40px;
-    text-align: center;
+    margin-top: 20px;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
-    .form-row {
+    .filters-row {
         flex-direction: column;
+        align-items: center;
     }
 
-    .dropdown-field {
-        flex: 1 1 100%;
-    }
-
-    .track-button {
-        width: 100%;
-        margin-top: 12px;
-    }
-
-    .admin-welcome {
-        font-size: 20px;
-    }
-
-    .section-title {
-        font-size: 18px;
+    .dropdown,
+    .track-btn {
+        width: 90%;
     }
 }
