@@ -44,14 +44,14 @@ function StudentDashboard() {
 
                 <section>
                     <h2 className="section-title" style={{ textAlign: 'left' }}>Available Quizzes</h2>
-                    
+
                     <div className="table-wrapper">
                         <table className="quiz-table">
                             <thead>
                                 <tr>
-                                    <th>Subject</th>
-                                    <th>Topic</th>
-                                    <th>Action</th>
+                                    <th className="col-subject">Subject</th>
+                                    <th className="col-topic">Topic</th>
+                                    <th className="col-action">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,16 +80,12 @@ function StudentDashboard() {
                     </div>
                 </section>
 
-               <div className="action-row centered-buttons">
-  <button
-    className="start-btn"
-    onClick={() => navigate('/old-quizzes')}
-  >
-    Access Previous Quizzes
-  </button>
-  <LogoutButton />
-</div>
-
+                <div className="action-row centered-buttons">
+                    <button className="start-btn" onClick={() => navigate('/old-quizzes')}>
+                        Access Previous Quizzes
+                    </button>
+                    <LogoutButton />
+                </div>
             </div>
         </div>
     );

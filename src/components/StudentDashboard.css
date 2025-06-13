@@ -46,7 +46,7 @@ body {
 .quiz-table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: auto;
+    table-layout: fixed;
 }
 
 .quiz-table th,
@@ -58,9 +58,22 @@ body {
     word-break: break-word;
 }
 
+.quiz-table th.col-subject,
+.quiz-table td:nth-child(1) {
+    width: 20%;
+}
+
+.quiz-table th.col-topic,
 .quiz-table td:nth-child(2) {
-    max-width: 150px;
-    white-space: normal;
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quiz-table th.col-action,
+.quiz-table td:nth-child(3) {
+    width: 20%;
 }
 
 .start-btn {
@@ -72,8 +85,6 @@ body {
     font-size: 14px;
     cursor: pointer;
     white-space: nowrap;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 
 .start-btn:hover {
@@ -82,10 +93,10 @@ body {
 
 .centered-buttons {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 480px) {
@@ -111,13 +122,18 @@ body {
         padding: 8px;
     }
 
+    .quiz-table td:nth-child(2) {
+        white-space: normal;
+        word-break: break-word;
+    }
+
     .start-btn {
         font-size: 13px;
         padding: 6px 10px;
     }
 
     .centered-buttons {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
