@@ -15,28 +15,27 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    max-width: 700px;
     width: 100%;
+    max-width: 700px;
     text-align: center;
 }
 
 .dashboard-logo {
-    width: 100%;
     max-width: 250px;
+    width: 100%;
     height: auto;
     margin-bottom: 20px;
     object-fit: contain;
 }
 
 .welcome {
-    font-size: 28px;
-    margin: 10px 0 5px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .section-title {
-    font-size: 22px;
-    margin-top: 25px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin: 20px 0 12px;
     color: #333;
 }
 
@@ -47,51 +46,34 @@ body {
 .quiz-table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
+    table-layout: auto;
 }
 
 .quiz-table th,
 .quiz-table td {
-    padding: 12px 10px;
     border: 1px solid #ddd;
+    padding: 10px;
     text-align: center;
     vertical-align: middle;
+    word-break: break-word;
 }
 
-/* Column widths and overflow handling */
-.quiz-table th:nth-child(1),
-.quiz-table td:nth-child(1) {
-    width: 20%;
-    white-space: nowrap;
-}
-
-.quiz-table th:nth-child(2),
 .quiz-table td:nth-child(2) {
-    width: 60%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.quiz-table th:nth-child(3),
-.quiz-table td:nth-child(3) {
-    width: 20%;
-    white-space: nowrap;
+    max-width: 150px;
+    white-space: normal;
 }
 
 .start-btn {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
     font-size: 14px;
+    cursor: pointer;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .start-btn:hover {
@@ -100,31 +82,33 @@ body {
 
 .centered-buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     gap: 12px;
     margin-top: 20px;
-    flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .dashboard-container {
         padding: 20px;
     }
 
     .dashboard-logo {
         max-width: 180px;
-        margin-bottom: 15px;
     }
 
     .welcome {
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .section-title {
+        font-size: 18px;
     }
 
     .quiz-table th,
     .quiz-table td {
-        padding: 8px 6px;
         font-size: 13px;
+        padding: 8px;
     }
 
     .start-btn {
@@ -134,6 +118,6 @@ body {
 
     .centered-buttons {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
     }
 }
