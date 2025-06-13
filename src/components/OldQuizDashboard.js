@@ -83,9 +83,11 @@ function OldQuizDashboard() {
                     </div>
                 </section>
 
-                <div className="action-row">
-                    <LogoutButton />
-                </div>
+              <div className="action-row" style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+    <button className="start-btn" onClick={() => navigate('/student-dashboard')}>
+        Go to Homepage
+    </button>
+</div>
             </div>
         </div>
     );
