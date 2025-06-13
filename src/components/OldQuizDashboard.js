@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './OldQuizDashboard.css';
-import LogoutButton from './LogoutButton';
+
 
 function OldQuizDashboard() {
     const studentName = localStorage.getItem('username') || 'Student';
