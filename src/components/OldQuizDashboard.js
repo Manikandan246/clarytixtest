@@ -7,7 +7,7 @@ function OldQuizDashboard() {
     const studentName = localStorage.getItem('username') || 'Student';
     const schoolLogo = localStorage.getItem('schoolLogoUrl');
     const studentId = localStorage.getItem('userId');
-    const [quizHistory, setQuizHistory] = useState([]);
+    const [oldQuizzes, setQuizHistory] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
