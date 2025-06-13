@@ -55,7 +55,7 @@ function OldQuizDashboard() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {Array.isArray(oldQuizzes) && quizHistory.length > 0 ? (
+                                {Array.isArray(oldQuizzes) && oldQuizzes.length > 0 ? (
                                     oldQuizzes.map((quiz) => (
                                         <tr key={quiz.topic_id}>
                                             <td>{quiz.subject}</td>
