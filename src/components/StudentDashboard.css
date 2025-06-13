@@ -40,6 +40,10 @@ body {
     color: #333;
 }
 
+.table-wrapper {
+    overflow-x: auto;
+}
+
 .quiz-table {
     width: 100%;
     border-collapse: collapse;
@@ -48,28 +52,22 @@ body {
 
 .quiz-table th,
 .quiz-table td {
-    background: #ffffff;
-    padding: 12px 16px;
+    padding: 12px 10px;
     border: 1px solid #ddd;
     text-align: center;
     vertical-align: middle;
 }
 
-.quiz-table th {
-    background-color: #f0f0f0;
-    font-weight: 600;
-}
-
-/* Column widths and ellipsis */
+/* Column widths and overflow handling */
 .quiz-table th:nth-child(1),
 .quiz-table td:nth-child(1) {
     width: 20%;
+    white-space: nowrap;
 }
 
 .quiz-table th:nth-child(2),
 .quiz-table td:nth-child(2) {
     width: 60%;
-    text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -78,29 +76,32 @@ body {
 .quiz-table th:nth-child(3),
 .quiz-table td:nth-child(3) {
     width: 20%;
+    white-space: nowrap;
 }
 
 .start-btn {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 6px;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 16px;
+    font-size: 14px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .start-btn:hover {
     background-color: #0056b3;
 }
 
-/* Centered buttons row */
 .centered-buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 12px;
     margin-top: 20px;
     flex-wrap: wrap;
@@ -122,18 +123,17 @@ body {
 
     .quiz-table th,
     .quiz-table td {
-        padding: 8px 10px;
-        font-size: 14px;
+        padding: 8px 6px;
+        font-size: 13px;
     }
 
     .start-btn {
-        padding: 6px 12px;
-        font-size: 14px;
+        font-size: 13px;
+        padding: 6px 10px;
     }
 
     .centered-buttons {
         flex-direction: column;
         gap: 10px;
-        align-items: center;
     }
 }
