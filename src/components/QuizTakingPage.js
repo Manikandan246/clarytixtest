@@ -9,6 +9,8 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
     const [loading, setLoading] = useState(true);
     const [subject, setSubject] = useState('');
     const [topic, setTopic] = useState('');
+    const borderColors = ['#007bff', '#28a745', '#ffc107', '#17a2b8', '#6f42c1', '#fd7e14', '#20c997', '#e83e8c', '#6610f2', '#dc3545'];
+
 
     useEffect(() => {
         const fetchQuestions = async () => {
@@ -82,8 +84,12 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
         <div className="quiz-container">
             <img src={schoolLogo} alt="School Logo" className="school-logo" />
             <h2>{subject} - {topic}</h2>
-            {questions.map((q, index) => (
-    <div key={q.id} className="quiz-question-card">
+       {questions.map((q, index) => (
+    <div
+        key={q.id}
+        className="quiz-question-card"
+        style={{ borderLeftColor: borderColors[index % borderColors.length] }}
+    >
         <h4>Q{index + 1}. {q.question_text}</h4>
         <div className="options">
             {['A', 'B', 'C', 'D'].map((opt) => (
@@ -101,6 +107,7 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
         </div>
     </div>
 ))}
+
 
             <button onClick={handleSubmit}>
                 Submit Quiz

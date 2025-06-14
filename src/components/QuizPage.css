@@ -73,14 +73,16 @@ button:hover {
 }
 
 .quiz-question-card {
-    border-left: 6px solid #007bff;  /* Blue colored border */
+    border-left: 6px solid #ccc; /* default fallback */
     border-radius: 8px;
     background-color: #fefefe;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     padding: 16px;
     margin-bottom: 20px;
     text-align: left;
+    transition: border-color 0.3s ease;
 }
+
 
 .quiz-question-card h4 {
     font-size: 16px;
