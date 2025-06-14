@@ -1,15 +1,8 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import './QuizPage.css';
 
 function ResultPage({ results, onBackToDashboard }) {
     const schoolLogo = localStorage.getItem('schoolLogoUrl');
-    const { topicId } = useParams();
-    const navigate = useNavigate();
-
-    const handleRetakeQuiz = () => {
-        navigate(`/quiz/${topicId}`);
-    };
 
     return (
         <div className="quiz-container">
@@ -32,7 +25,6 @@ function ResultPage({ results, onBackToDashboard }) {
             })}
 
             <div className="result-buttons">
-                <button className="submit-btn" onClick={handleRetakeQuiz}>Retake Quiz</button>
                 <button className="submit-btn" onClick={onBackToDashboard}>Back to Homepage</button>
             </div>
         </div>
