@@ -50,7 +50,8 @@ function StudentDashboard() {
                     <div className="quiz-cards-wrapper">
                         {Array.isArray(availableQuizzes) && availableQuizzes.length > 0 ? (
                             availableQuizzes.map((quiz) => (
-                                <div key={quiz.topic_id} className="quiz-card">
+                                <div key={quiz.topic_id} className={`quiz-card ${quiz.subject.toLowerCase()}`}>
+
                                     <p><strong>Subject:</strong> {quiz.subject}</p>
                                     <p><strong>Topic:</strong> {quiz.topic}</p>
                                     <button
