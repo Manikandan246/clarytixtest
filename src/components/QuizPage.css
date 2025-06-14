@@ -89,3 +89,35 @@ button:hover {
     margin-bottom: 10px;
     font-weight: 600;
 }
+
+.result-card {
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-color: #fff; /* keep background white */
+}
+
+.result-card.correct {
+  border-color: #28a745; /* green */
+}
+
+.result-card.incorrect {
+  border-color: #dc3545; /* red */
+}
+
+.result-card h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #000;
+}
+
+.result-card p {
+  margin: 4px 0;
+  color: #000;
+}
+
+.result-card .explanation {
+  margin-top: 10px;
+}
+
