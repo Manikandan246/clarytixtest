@@ -37,7 +37,7 @@ function StudentDashboard() {
                 <img
                     src={schoolLogo}
                     alt="School Logo"
-                    className="dashboard-logo"
+                     className="school-logo-large"
                     onError={(e) => { e.target.src = '/fallback-logo.png'; }}
                 />
                 <h1 className="welcome">Hi, {studentName}</h1>
