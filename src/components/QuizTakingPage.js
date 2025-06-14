@@ -82,25 +82,26 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
         <div className="quiz-container">
             <img src={schoolLogo} alt="School Logo" className="school-logo" />
             <h2>{subject} - {topic}</h2>
-            {questions.map((q) => (
-                <div key={q.id} className="question-block">
-                    <p className="question-text">{q.question_text}</p>
-                    <div className="options">
-                        {['A', 'B', 'C', 'D'].map((opt) => (
-                            <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
-                                <input
-                                    type="radio"
-                                    name={`question_${q.id}`}
-                                    value={opt}
-                                    checked={answers[q.id] === opt}
-                                    onChange={() => handleOptionSelect(q.id, opt)}
-                                />
-                                {opt}: {q[`option_${opt.toLowerCase()}`]}
-                            </label>
-                        ))}
-                    </div>
-                </div>
+            {questions.map((q, index) => (
+    <div key={q.id} className="quiz-question-card">
+        <h4>Q{index + 1}. {q.question_text}</h4>
+        <div className="options">
+            {['A', 'B', 'C', 'D'].map((opt) => (
+                <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
+                    <input
+                        type="radio"
+                        name={`question_${q.id}`}
+                        value={opt}
+                        checked={answers[q.id] === opt}
+                        onChange={() => handleOptionSelect(q.id, opt)}
+                    />
+                    {opt}: {q[`option_${opt.toLowerCase()}`]}
+                </label>
             ))}
+        </div>
+    </div>
+))}
+
             <button onClick={handleSubmit}>
                 Submit Quiz
             </button>
