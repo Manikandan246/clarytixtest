@@ -96,6 +96,7 @@ button:hover {
   border-radius: 8px;
   border: 2px solid transparent;
   background-color: #fff; /* keep background white */
+  text-align: left;
 }
 
 .result-card.correct {
