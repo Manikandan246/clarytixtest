@@ -84,7 +84,7 @@ function AdminDashboard() {
     return (
         <div className="admin-dashboard-wrapper">
             <div className="admin-dashboard-container">
-                <img src={schoolLogo} alt="School Logo" className="school-logo-full" />
+                <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
 
                 {/* Card 1: Topic Wise */}
                 <div className="card">
