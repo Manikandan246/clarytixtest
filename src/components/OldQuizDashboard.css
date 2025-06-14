@@ -14,69 +14,70 @@
     text-align: center;
 }
 
-
+.dashboard-logo {
+    height: 80px;
+    margin-bottom: 20px;
+}
 
 .welcome {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.card {
-    background: #fdfdfd;
-    border-radius: 10px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+.section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
     text-align: left;
 }
 
-.card-title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-align: center;
+.table-wrapper {
+    overflow-x: auto;
 }
 
-.dropdown-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
+.quiz-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.dropdown {
-    padding: 10px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    min-width: 150px;
-    font-size: 14px;
+.quiz-table th,
+.quiz-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
 }
 
-.track-btn {
+.quiz-table th {
+    background-color: #f5f5f5;
+}
+
+.start-btn {
     background-color: #007bff;
     color: white;
-    padding: 10px 20px;
-    font-size: 15px;
+    padding: 8px 16px;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-.track-btn:disabled {
-    background-color: #b2c7e5;
-    cursor: not-allowed;
-}
-
-.track-btn:hover:not(:disabled) {
+.start-btn:hover {
     background-color: #0056b3;
 }
 
-.logout-container {
+.action-row {
     display: flex;
-    justify-content: center;
-    margin-top: 30px;
+    justify-content: flex-end;
+    margin-top: 20px;
 }
 
+.centered-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.action-row {
+    margin-top: 30px;
+}
 .start-btn {
     padding: 10px 20px;
     font-size: 16px;
@@ -86,31 +87,7 @@
     border-radius: 4px;
     cursor: pointer;
 }
-
 .start-btn:hover {
     background-color: #0056b3;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 480px) {
-    .dashboard-container {
-        padding: 20px;
-    }
-
-    .school-logo-large {
-        height: 60px;
-    }
-
-    .card-title {
-        font-size: 18px;
-    }
-
-    .dropdown {
-        width: 100%;
-    }
-
-    .dropdown-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-}
