@@ -87,7 +87,7 @@ function AdminDashboard() {
                 <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
 
                 {/* Card 1: Topic Wise */}
-                <div className="card">
+              <div className="card topic-card">
                     <h3 className="card-title">Track Performance Topic Wise</h3>
                     <div className="dropdown-row">
                         <select className="dropdown" value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
@@ -132,7 +132,7 @@ function AdminDashboard() {
                 </div>
 
                 {/* Card 2: Student Wise */}
-                <div className="card">
+                <div className="card student-card">
                     <h3 className="card-title">Track Performance Student Wise</h3>
                     <div className="dropdown-row">
                         <select className="dropdown" value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
