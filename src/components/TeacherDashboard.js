@@ -46,6 +46,12 @@ function TeacherDashboard() {
         setSelectedTopicId('');
     };
 
+    const showMessage = (text, color = 'green') => {
+        setMessageColor(color);
+        setMessage(text);
+        setTimeout(() => setMessage(''), 3000);
+    };
+
     const handleSendQuiz = () => {
         fetch(`https://clarytix-backend.onrender.com/teacher/assign-quiz`, {
             method: 'POST',
@@ -61,20 +67,17 @@ function TeacherDashboard() {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                setMessageColor('green');
-                setMessage('Quiz sent successfully!');
-                clearForm();
+                showMessage('Quiz sent successfully!', 'green');
             } else if (data.message === 'Quiz already assigned.') {
-                setMessageColor('red');
-                setMessage('Quiz has already been sent.');
+                showMessage('Quiz has already been sent.', 'red');
             } else {
-                setMessageColor('red');
-                setMessage('Failed to send quiz. Try again.');
+                showMessage('Failed to send quiz. Try again.', 'red');
             }
+            clearForm(); // Always clear fields after any response
         })
         .catch(() => {
-            setMessageColor('red');
-            setMessage('Server error. Try again.');
+            showMessage('Server error. Try again.', 'red');
+            clearForm(); // Clear fields even on error
         });
     };
 
