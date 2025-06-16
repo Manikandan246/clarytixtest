@@ -69,7 +69,7 @@ function ViewQuestions() {
             ))}
 
             <div className="result-buttons">
-                <button onClick={() => navigate('/admin/home')}>Go to Homepage</button>
+                <button onClick={() => navigate('/admin-dashboard')}>Go to Homepage</button>
             </div>
         </div>
     );
