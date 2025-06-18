@@ -39,7 +39,9 @@ function QuestionAnalysis() {
     }, [topicId, schoolId]);
 
     return (
-        <div className="defaulters-container">
+          <div className="analysis-container">
+        <div className="view-questions-container">
+        
             <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
             <h2>Question Analysis</h2>
             <p className="topic-subtitle">
@@ -74,6 +76,7 @@ function QuestionAnalysis() {
             <div className="back-button-container">
                 <button onClick={() => navigate('/admin-dashboard')}>Back to Homepage</button>
             </div>
+        </div>
         </div>
     );
 }

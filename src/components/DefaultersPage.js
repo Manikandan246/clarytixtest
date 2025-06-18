@@ -37,36 +37,38 @@ function DefaultersPage() {
     }, [topicId, schoolId]);
 
     return (
-        <div className="defaulters-container">
-            <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
-            <h2>Defaulters List</h2>
-            <p className="topic-subtitle">
-                {topicDetails.className} - {topicDetails.subject} - {topicDetails.topic}
-            </p>
+        <div className="defaulters-wrapper">
+            <div className="defaulters-container">
+                <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
+                <h2>Students Yet to Attempt</h2>
+                <p className="defaulters-subtitle">
+                    {topicDetails.className} - {topicDetails.subject} - {topicDetails.topic}
+                </p>
 
-            {loading ? (
-                <p>Loading...</p>
-            ) : defaulters.length === 0 ? (
-                <p>No defaulters found 🎉</p>
-            ) : (
-                <table className="defaulters-table">
-                    <thead>
-                        <tr>
-                            <th>Student Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {defaulters.map((student, index) => (
-                            <tr key={index}>
-                                <td>{student.username}</td>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : defaulters.length === 0 ? (
+                    <p>No defaulters found 🎉</p>
+                ) : (
+                    <table className="defaulters-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            )}
+                        </thead>
+                        <tbody>
+                            {defaulters.map((student, index) => (
+                                <tr key={index}>
+                                    <td>{student.username}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )}
 
-            <div className="back-button-container">
-                <button onClick={() => navigate('/admin-dashboard')}>Back to Homepage</button>
+                <div className="button-group">
+                    <button onClick={() => navigate('/admin-dashboard')}>Back to Homepage</button>
+                </div>
             </div>
         </div>
     );
