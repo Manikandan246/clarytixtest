@@ -54,7 +54,7 @@ function ViewQuestions() {
                         <li><strong>C:</strong> {q.option_c}</li>
                         <li><strong>D:</strong> {q.option_d}</li>
                     </ul>
-                    <p className="correct-answer"><strong>Correct Answer:</strong> {q.correct_answer?.toUpperCase() || 'N/A'}</p>
+                    <p className="correct-answer"><strong>Correct Answer:</strong> {q.correct_option?.toUpperCase() || 'N/A'}</p>
                     <p className="explanation"><strong>Explanation:</strong> {q.explanation}</p>
                 </div>
             ))}
