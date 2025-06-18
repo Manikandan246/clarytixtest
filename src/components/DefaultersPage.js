@@ -12,6 +12,7 @@ function DefaultersPage() {
     const schoolId = Number(localStorage.getItem('schoolId'));
 
     useEffect(() => {
+          window.scrollTo(0, 0);
         const fetchDefaulters = async () => {
             try {
                 const response = await fetch(`https://clarytix-backend.onrender.com/admin/defaulters?topicId=${topicId}&schoolId=${schoolId}`);

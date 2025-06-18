@@ -4,6 +4,10 @@ import './QuizPage.css';
 function ResultPage({ results, onBackToDashboard }) {
     const schoolLogo = localStorage.getItem('schoolLogoUrl');
 
+        useEffect(() => {
+        window.scrollTo(0, 0); // ✅ Scroll to top when the component mounts
+    }, []);
+
     return (
         <div className="quiz-container">
             <img src={schoolLogo} alt="School Logo" className="school-logo" />
