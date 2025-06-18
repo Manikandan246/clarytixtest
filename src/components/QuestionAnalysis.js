@@ -31,7 +31,7 @@ function QuestionAnalysis() {
                 <thead>
                     <tr>
                         <th>Question</th>
-                        <th>Total Responses</th>
+                        <th>Total No. of Responses</th>
                         <th>Incorrect</th>
                         <th>Correct</th>
                     </tr>
