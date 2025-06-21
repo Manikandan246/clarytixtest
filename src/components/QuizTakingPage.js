@@ -90,7 +90,7 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
                     {/* Display image if available */}
                     {q.image_url && (
                         <div className="question-image-wrapper">
-                            <img src={q.image_url} alt="Question image" className="question-image" />
+                            <img src={q.image_url} alt="Visual related to the question" className="question-image" />
                         </div>
                     )}
 
