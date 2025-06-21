@@ -88,20 +88,23 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
                     style={{ borderLeftColor: borderColors[index % borderColors.length] }}
                 >
                     <h4>Q{index + 1}. {q.question_text}</h4>
-                    <div className="options">
-                        {['A', 'B', 'C', 'D'].map((opt) => (
-                            <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
-                                <input
-                                    type="radio"
-                                    name={`question_${q.id}`}
-                                    value={opt}
-                                    checked={answers[q.id] === opt}
-                                    onChange={() => handleOptionSelect(q.id, opt)}
-                                />
-                                <span><strong>{opt}:</strong> {q[`option_${opt.toLowerCase()}`]}</span>
-                            </label>
-                        ))}
-                    </div>
+              <div className="options">
+  {['A', 'B', 'C', 'D'].map((opt) => (
+    <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
+      <input
+        type="radio"
+        name={`question_${q.id}`}
+        value={opt}
+        checked={answers[q.id] === opt}
+        onChange={() => handleOptionSelect(q.id, opt)}
+      />
+      <div className="option-text">
+        <strong>{opt}:</strong> {q[`option_${opt.toLowerCase()}`]}
+      </div>
+    </label>
+  ))}
+</div>
+
                 </div>
             ))}
             <button onClick={handleSubmit}>Submit Quiz</button>

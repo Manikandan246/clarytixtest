@@ -49,24 +49,25 @@ h2 {
 .option-label {
   display: flex;
   align-items: flex-start;
-  padding: 10px;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .option-label input[type="radio"] {
-  margin-right: 10px;
-  margin-top: 5px;
+  margin-right: 12px;
+  margin-top: 4px;
   flex-shrink: 0;
 }
 
-.option-label span {
-  font-size: 15px;
-  line-height: 1.5;
+.option-label .option-text {
+  font-size: 16px;
+  line-height: 1.4;
   word-break: break-word;
+  flex: 1;
 }
 
 .option-label.selected {
@@ -81,10 +82,11 @@ h2 {
     align-items: flex-start;
   }
 
-  .option-label span {
+  .option-label .option-text {
     font-size: 14px;
   }
 }
+
 
 button {
     margin-top: 20px;
