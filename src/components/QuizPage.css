@@ -39,41 +39,51 @@ h2 {
     font-weight: 600;
 }
 
-/* Option Styling */
 .options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .option-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    background-color: #f9f9f9;
-    padding: 10px 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .option-label input[type="radio"] {
-    margin-top: 4px;
-    flex-shrink: 0;
-    cursor: pointer;
+  margin-right: 10px;
+  margin-top: 5px;
+  flex-shrink: 0;
 }
 
 .option-label span {
-    flex: 1;
-    font-size: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+  word-break: break-word;
 }
 
 .option-label.selected {
-    background-color: #e6f7ff;
-    border-color: #007bff;
+  background-color: #e6f7ff;
+  border-color: #007bff;
+}
+
+/* Mobile fix */
+@media (max-width: 600px) {
+  .option-label {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .option-label span {
+    font-size: 14px;
+  }
 }
 
 button {
@@ -92,18 +102,4 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Responsive for Mobile */
-@media (max-width: 480px) {
-    .quiz-container {
-        padding: 15px;
-    }
 
-    .option-label {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .option-label span {
-        font-size: 14px;
-    }
-}
