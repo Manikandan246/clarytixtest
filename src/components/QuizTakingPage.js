@@ -93,16 +93,20 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
         <h4>Q{index + 1}. {q.question_text}</h4>
         <div className="options">
             {['A', 'B', 'C', 'D'].map((opt) => (
-                <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
-                    <input
+                <div key={opt} className={`option-wrapper ${answers[q.id] === opt ? 'selected' : ''}`}>
+               
+                      <input
                         type="radio"
+                        id={`q${q.id}_${opt}`}
                         name={`question_${q.id}`}
                         value={opt}
                         checked={answers[q.id] === opt}
                         onChange={() => handleOptionSelect(q.id, opt)}
                     />
-                    {opt}: {q[`option_${opt.toLowerCase()}`]}
-                </label>
+                     <label htmlFor={`q${q.id}_${opt}`}>
+                        <strong>{opt}:</strong> {q[`option_${opt.toLowerCase()}`]}
+                    </label>
+                     </div>
             ))}
         </div>
     </div>
