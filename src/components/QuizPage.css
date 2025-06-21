@@ -42,30 +42,31 @@ h2 {
 .options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .option-label {
     display: flex;
     align-items: center;
+    padding: 12px 16px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
-    padding: 10px 14px;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-size: 15px;
-    text-align: left;
 }
 
 .option-label input[type="radio"] {
-    margin-right: 10px;
+    margin-right: 12px;
     accent-color: #007bff;
     transform: scale(1.2);
     flex-shrink: 0;
 }
 
 .option-label span {
+    text-align: left;
     flex: 1;
     word-break: break-word;
 }
@@ -74,6 +75,7 @@ h2 {
     background-color: #e6f7ff;
     border-color: #007bff;
 }
+
 
 .submit-btn {
     display: block;
