@@ -28,6 +28,7 @@ h2 {
     padding: 16px;
     margin-bottom: 20px;
     text-align: left;
+    border-left: 6px solid #ccc;
 }
 
 .quiz-question-card h4 {
@@ -47,15 +48,15 @@ h2 {
     align-items: center;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 10px 12px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .option-label input[type="radio"] {
-    margin-right: 12px;
-    flex-shrink: 0;
+    margin-right: 10px;
+    accent-color: #007bff;
 }
 
 .option-label span {
