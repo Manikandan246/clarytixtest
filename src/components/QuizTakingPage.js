@@ -54,11 +54,7 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
             const response = await fetch('https://clarytix-backend.onrender.com/quiz/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    userId,
-                    topicId,
-                    answers: formattedAnswers
-                })
+                body: JSON.stringify({ userId, topicId, answers: formattedAnswers })
             });
 
             const data = await response.json();
@@ -73,9 +69,7 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
         }
     };
 
-    if (loading) {
-        return <div>Loading quiz...</div>;
-    }
+    if (loading) return <div>Loading quiz...</div>;
 
     return (
         <div className="quiz-container">
@@ -85,29 +79,26 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
                 <div
                     key={q.id}
                     className="quiz-question-card"
-                    style={{ borderLeftColor: borderColors[index % borderColors.length] }}
+                    style={{ borderLeft: `6px solid ${borderColors[index % borderColors.length]}` }}
                 >
                     <h4>Q{index + 1}. {q.question_text}</h4>
-              <div className="options">
-  {['A', 'B', 'C', 'D'].map((opt) => (
-    <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
-      <input
-        type="radio"
-        name={`question_${q.id}`}
-        value={opt}
-        checked={answers[q.id] === opt}
-        onChange={() => handleOptionSelect(q.id, opt)}
-      />
-      <div className="option-text">
-        <strong>{opt}:</strong> {q[`option_${opt.toLowerCase()}`]}
-      </div>
-    </label>
-  ))}
-</div>
-
+                    <div className="options">
+                        {['A', 'B', 'C', 'D'].map((opt) => (
+                            <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
+                                <input
+                                    type="radio"
+                                    name={`question_${q.id}`}
+                                    value={opt}
+                                    checked={answers[q.id] === opt}
+                                    onChange={() => handleOptionSelect(q.id, opt)}
+                                />
+                                <span><strong>{opt}:</strong> {q[`option_${opt.toLowerCase()}`]}</span>
+                            </label>
+                        ))}
+                    </div>
                 </div>
             ))}
-            <button onClick={handleSubmit}>Submit Quiz</button>
+            <button className="submit-btn" onClick={handleSubmit}>Submit Quiz</button>
         </div>
     );
 }
