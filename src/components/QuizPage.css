@@ -42,8 +42,11 @@ h2 {
 }
 
 .option-label {
-    margin-bottom: 8px;
-    cursor: pointer;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;               /* Arrange items horizontally */
+  align-items: center;         /* Vertically center align */
+  gap: 8px;                    /* Add space between radio and text */
 }
 
 .option-label input[type="radio"] {
