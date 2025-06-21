@@ -81,7 +81,6 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
         <div className="quiz-container">
             <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
             <h2>{subject} - {topic}</h2>
-
             {questions.map((q, index) => (
                 <div
                     key={q.id}
@@ -105,10 +104,7 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
                     </div>
                 </div>
             ))}
-
-            <button onClick={handleSubmit}>
-                Submit Quiz
-            </button>
+            <button onClick={handleSubmit}>Submit Quiz</button>
         </div>
     );
 }
