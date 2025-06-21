@@ -9,13 +9,7 @@
     text-align: center;
 }
 
-.school-logo {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin-bottom: 20px;
-    object-fit: contain;
-}
+
 
 h2 {
     font-size: 24px;
@@ -24,15 +18,15 @@ h2 {
 }
 
 .quiz-question-card {
+    border-left: 6px solid #ccc;
+    border-radius: 8px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     padding: 16px;
     margin-bottom: 20px;
     text-align: left;
-    background-color: #fff;
-    border-left: 6px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease;
 }
-
 
 .quiz-question-card h4 {
     font-size: 16px;
@@ -47,36 +41,34 @@ h2 {
     margin-top: 10px;
 }
 
-.option-wrapper {
+.option-label {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    background-color: #f9f9f9;
     padding: 10px 12px;
-    border-radius: 6px;
+    background-color: #f9f9f9;
     border: 1px solid #ccc;
-    transition: background-color 0.2s ease;
+    border-radius: 6px;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
-.option-wrapper.selected {
+.option-label input[type="radio"] {
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.option-label.selected {
     background-color: #e6f7ff;
     border-color: #007bff;
 }
 
-.option-wrapper input[type="radio"] {
-    margin-top: 4px;
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-.option-wrapper label {
+.option-label span {
     flex: 1;
-    font-size: 15px;
-    cursor: pointer;
-    line-height: 1.4;
 }
 
-/* Button styles */
 button {
     margin-top: 20px;
     padding: 12px 24px;
@@ -91,66 +83,4 @@ button {
 
 button:hover {
     background-color: #0056b3;
-}
-
-/* Result styles */
-.result-card {
-    padding: 16px;
-    margin-bottom: 16px;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    background-color: #fff;
-    text-align: left;
-}
-
-.result-card.correct {
-    border-color: #28a745;
-}
-
-.result-card.incorrect {
-    border-color: #dc3545;
-}
-
-.result-card h4 {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #000;
-}
-
-.result-card p {
-    margin: 4px 0;
-    color: #000;
-}
-
-.result-card .explanation {
-    margin-top: 10px;
-}
-
-.result-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 24px;
-}
-
-/* Mobile responsive */
-@media (max-width: 600px) {
-    .option-label {
-        flex-direction: row;
-        align-items: flex-start;
-        font-size: 14px;
-    }
-
-    .quiz-question-card h4 {
-        font-size: 15px;
-    }
-
-    .quiz-container {
-        padding: 16px;
-    }
-
-    .result-buttons button {
-        width: 100%;
-    }
 }
