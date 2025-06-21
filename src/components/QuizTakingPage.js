@@ -54,7 +54,11 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
             const response = await fetch('https://clarytix-backend.onrender.com/quiz/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId, topicId, answers: formattedAnswers })
+                body: JSON.stringify({
+                    userId,
+                    topicId,
+                    answers: formattedAnswers
+                })
             });
 
             const data = await response.json();
@@ -82,6 +86,14 @@ function QuizTakingPage({ topicId, onQuizComplete }) {
                     style={{ borderLeft: `6px solid ${borderColors[index % borderColors.length]}` }}
                 >
                     <h4>Q{index + 1}. {q.question_text}</h4>
+
+                    {/* Display image if available */}
+                    {q.image_url && (
+                        <div className="question-image-wrapper">
+                            <img src={q.image_url} alt="Question image" className="question-image" />
+                        </div>
+                    )}
+
                     <div className="options">
                         {['A', 'B', 'C', 'D'].map((opt) => (
                             <label key={opt} className={`option-label ${answers[q.id] === opt ? 'selected' : ''}`}>
