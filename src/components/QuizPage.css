@@ -6,19 +6,22 @@
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
 .school-logo-large {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {
     font-size: 22px;
     color: #222;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .quiz-question-card {
@@ -27,7 +30,6 @@ h2 {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     padding: 16px;
     margin-bottom: 20px;
-    text-align: left;
     border-left: 6px solid #007bff;
 }
 
@@ -52,14 +54,20 @@ h2 {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
     font-size: 15px;
+    text-align: left;
 }
 
 .option-label input[type="radio"] {
     margin-right: 10px;
     accent-color: #007bff;
     transform: scale(1.2);
+    flex-shrink: 0;
+}
+
+.option-label span {
+    flex: 1;
+    word-break: break-word;
 }
 
 .option-label.selected {
@@ -68,7 +76,8 @@ h2 {
 }
 
 .submit-btn {
-    margin-top: 24px;
+    display: block;
+    margin: 30px auto;
     padding: 12px 24px;
     background-color: #007bff;
     color: #ffffff;
