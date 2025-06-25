@@ -11,13 +11,12 @@ body {
 }
 
 .dashboard-container {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
+   width: 100%;
+    max-width: 900px;
+    background-color: #fdfdfd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
 }
 
 .dashboard-logo {
