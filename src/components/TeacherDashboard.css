@@ -39,18 +39,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: space-between;
+    justify-content: center; /* changed from space-between to center */
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .dropdown {
-    flex: 1;
-    min-width: 150px;
+    flex: 0 1 100%; /* allow full width on small screens */
+    max-width: 300px; /* limit the max width for larger screens */
     height: 40px;
     padding: 6px 12px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .track-btn {
