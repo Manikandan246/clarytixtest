@@ -29,6 +29,15 @@ function ClassDetailsPage() {
         fetchDetails();
     }, [topicId, schoolId]);
 
+
+    function formatSeconds(seconds) {
+  if (!seconds || isNaN(seconds)) return '0m 0s';
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}m ${secs}s`;
+}
+
+
     return (
         <div className="cd-wrapper">
             <div className="cd-container">
@@ -49,7 +58,7 @@ function ClassDetailsPage() {
                             <tr key={idx}>
                                 <td>{row.username}</td>
                                 <td>{row.score}</td>
-                                <td>{row.time_taken || '—'}</td>
+                                <td>{formatSeconds(row.time_taken)}</td>
                             </tr>
                         ))}
                     </tbody>
