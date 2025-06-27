@@ -42,7 +42,7 @@ function ClassDetailsPage() {
         <div className="cd-wrapper">
             <div className="cd-container">
                 <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
-                <h2>Class Details</h2>
+                <h2>Class Performance Details</h2>
                 <p>{meta.className} - {meta.subject} - {meta.topic}</p>
 
                 <table className="cd-table">
