@@ -68,9 +68,13 @@ function ViewQuestions() {
 
             <div className="result-buttons">
                 <button
-                    onClick={() => navigate(
-                        `/admin/question-analysis/${topicId}${sectionId ? `?sectionId=${sectionId}` : ''}`
-                    )}
+                    onClick={() =>
+                        navigate(
+                            sectionId
+                                ? `/admin/question-analysis/${topicId}?sectionId=${sectionId}`
+                                : `/admin/question-analysis/${topicId}`
+                        )
+                    }
                 >
                     Question Analysis
                 </button>
