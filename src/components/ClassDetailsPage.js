@@ -10,10 +10,18 @@ function ClassDetailsPage() {
     const schoolLogo = localStorage.getItem('schoolLogoUrl');
     const schoolId = localStorage.getItem('schoolId');
 
+    const queryParams = new URLSearchParams(window.location.search);
+    const sectionId = queryParams.get('sectionId');
+
     useEffect(() => {
         const fetchDetails = async () => {
             try {
-                const res = await fetch(`https://clarytix-backend.onrender.com/admin/class-details?topicId=${topicId}&schoolId=${schoolId}`);
+                let url = `https://clarytix-backend.onrender.com/admin/class-details?topicId=${topicId}&schoolId=${schoolId}`;
+                if (sectionId) {
+                    url += `&sectionId=${sectionId}`;
+                }
+
+                const res = await fetch(url);
                 const data = await res.json();
                 if (data.success) {
                     setClassDetails(data.details);
@@ -27,23 +35,26 @@ function ClassDetailsPage() {
         };
 
         fetchDetails();
-    }, [topicId, schoolId]);
-
+    }, [topicId, schoolId, sectionId]);
 
     function formatSeconds(seconds) {
-  if (!seconds || isNaN(seconds)) return '0m 0s';
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-  return `${mins}m ${secs}s`;
-}
-
+        if (!seconds || isNaN(seconds)) return '0m 0s';
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}m ${secs}s`;
+    }
 
     return (
         <div className="cd-wrapper">
             <div className="cd-container">
                 <img src={schoolLogo} alt="School Logo" className="school-logo-large" />
                 <h2>Class Performance Details</h2>
-                <p>{meta.className} - {meta.subject} - {meta.topic}</p>
+                <p>
+                    {meta.className}
+                    {sectionId ? ` - Section ${sectionId}` : ''}
+                    {' - '}
+                    {meta.subject} - {meta.topic}
+                </p>
 
                 <table className="cd-table">
                     <thead>
