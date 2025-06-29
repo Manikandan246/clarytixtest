@@ -15,6 +15,7 @@ function ViewQuestions() {
     // ✅ Read sectionId from URL query params
     const queryParams = new URLSearchParams(window.location.search);
     const sectionId = queryParams.get('sectionId');
+    console.log("Loaded sectionId:", sectionId);
 
     const borderColors = [
         '#007bff', '#28a745', '#ffc107', '#17a2b8', '#6f42c1',
