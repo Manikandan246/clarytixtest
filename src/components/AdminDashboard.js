@@ -143,8 +143,12 @@ function AdminDashboard() {
     }, [selectedClass, selectedViewSubject, selectedSectionId, schoolId]);
 
     const handleViewQuestions = () => {
+    if (selectedSectionId) {
+        navigate(`/admin/view-questions/${selectedViewTopicId}?sectionId=${selectedSectionId}`);
+    } else {
         navigate(`/admin/view-questions/${selectedViewTopicId}`);
-    };
+    }
+};
 
     // Quiz Count
     useEffect(() => {
