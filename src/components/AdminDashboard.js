@@ -78,7 +78,7 @@ function AdminDashboard() {
                     setSelectedTopicId('');
                 });
         }
-    }, [selectedClass, selectedSubject, selectedSectionId]);
+    }, [selectedClass, selectedSubject, selectedSectionId, schoolId]);
 
     const handleTrackTopicWise = () => {
         const query = new URLSearchParams({ topicId: selectedTopicId, schoolId });
@@ -98,7 +98,7 @@ function AdminDashboard() {
                     setSelectedStudentSubject('');
                 });
         }
-    }, [selectedClass, selectedSectionId]);
+    }, [selectedClass, selectedSectionId, schoolId]);
 
     useEffect(() => {
         if (selectedStudent) {
@@ -127,7 +127,7 @@ function AdminDashboard() {
                     setSelectedViewTopicId('');
                 });
         }
-    }, [selectedClass]);
+    }, [selectedClass, schoolId]);
 
     useEffect(() => {
         if (selectedClass && selectedViewSubject) {
@@ -140,7 +140,7 @@ function AdminDashboard() {
                     setSelectedViewTopicId('');
                 });
         }
-    }, [selectedClass, selectedViewSubject, selectedSectionId]);
+    }, [selectedClass, selectedViewSubject, selectedSectionId, schoolId]);
 
     const handleViewQuestions = () => {
         navigate(`/admin/view-questions/${selectedViewTopicId}`);
@@ -156,7 +156,7 @@ function AdminDashboard() {
                     setSelectedQuizSubject('');
                 });
         }
-    }, [selectedClass]);
+    }, [selectedClass,schoolId]);
 
     const handleViewQuizCount = () => {
         const query = new URLSearchParams({
