@@ -81,10 +81,9 @@ function AdminDashboard() {
     }, [selectedClass, selectedSubject, selectedSectionId, schoolId]);
 
     const handleTrackTopicWise = () => {
-        const query = new URLSearchParams({ topicId: selectedTopicId, schoolId });
-        if (selectedSectionId) query.append('sectionId', selectedSectionId);
-        navigate(`/admin/performance?${query.toString()}`);
-    };
+    const sectionPart = selectedSectionId ? `?sectionId=${selectedSectionId}` : '';
+    navigate(`/admin/performance/${selectedTopicId}${sectionPart}`);
+};
 
     // Student-wise
     useEffect(() => {

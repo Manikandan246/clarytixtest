@@ -29,7 +29,7 @@ function App() {
         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/quiz/:topicId" element={<WrappedQuizContainer />} />
-        <Route path="/admin/performance" element={<AdminPerformancePage />} />
+        <Route path="/admin/performance/:topicId" element={<AdminPerformancePage />} />
         <Route path="/old-quizzes" element={<OldQuizDashboard />} />
         <Route path="/admin/student-performance" element={<StudentPerformance />} />
         <Route path="/admin/defaulters/:topicId" element={<DefaultersPage />} />
