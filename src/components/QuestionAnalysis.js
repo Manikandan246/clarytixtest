@@ -26,6 +26,7 @@ function QuestionAnalysis() {
                     url += `&sectionId=${sectionId}`;
                 }
 
+                console.log('Requesting analysis with URL:', url);
                 const response = await fetch(url);
                 const data = await response.json();
                 if (data.success) {
