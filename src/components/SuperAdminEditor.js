@@ -1,3 +1,4 @@
+// Full updated code with localized success messages and form reset logic
 import React, { useEffect, useState } from 'react';
 import './SuperAdminEditor.css';
 
@@ -12,14 +13,16 @@ function SuperAdminEditor() {
     const [selectedTopicsForSchool, setSelectedTopicsForSchool] = useState([]);
     const [assignMessage, setAssignMessage] = useState('');
 
-    // Section 3 states
     const [newSchoolName, setNewSchoolName] = useState('');
     const [newSchoolLogo, setNewSchoolLogo] = useState('');
     const [selectedClass, setSelectedClass] = useState('');
     const [selectedSubjects, setSelectedSubjects] = useState([]);
     const [allSubjects, setAllSubjects] = useState([]);
     const [excelFile, setExcelFile] = useState(null);
-    const [creationMessage, setCreationMessage] = useState('');
+
+    const [schoolCreationMsg, setSchoolCreationMsg] = useState('');
+    const [curriculumAssignMsg, setCurriculumAssignMsg] = useState('');
+    const [studentUploadMsg, setStudentUploadMsg] = useState('');
 
     useEffect(() => {
         fetch('https://clarytix-backend.onrender.com/superadmin/all-topics')
@@ -62,9 +65,7 @@ function SuperAdminEditor() {
 
     const handleTopicCheckbox = (topicId) => {
         setSelectedTopicsForSchool(prev =>
-            prev.includes(topicId)
-                ? prev.filter(id => id !== topicId)
-                : [...prev, topicId]
+            prev.includes(topicId) ? prev.filter(id => id !== topicId) : [...prev, topicId]
         );
     };
 
@@ -78,7 +79,7 @@ function SuperAdminEditor() {
             })
         });
         const data = await res.json();
-        setAssignMessage(data.success ? 'Topics assigned to school successfully!' : 'Assignment failed.');
+        setAssignMessage(data.success ? 'Topics assigned successfully!' : 'Assignment failed.');
         setTimeout(() => setAssignMessage(''), 3000);
     };
 
@@ -89,8 +90,12 @@ function SuperAdminEditor() {
             body: JSON.stringify({ name: newSchoolName, logo_url: newSchoolLogo })
         });
         const data = await res.json();
-        setCreationMessage(data.success ? 'School created successfully!' : 'School creation failed.');
-        setTimeout(() => setCreationMessage(''), 3000);
+        setSchoolCreationMsg(data.success ? 'School created successfully!' : 'School creation failed.');
+        if (data.success) {
+            setNewSchoolName('');
+            setNewSchoolLogo('');
+        }
+        setTimeout(() => setSchoolCreationMsg(''), 3000);
     };
 
     const handleAssignCurriculum = async () => {
@@ -104,8 +109,12 @@ function SuperAdminEditor() {
             })
         });
         const data = await res.json();
-        setCreationMessage(data.success ? 'Curriculum assigned successfully!' : 'Assignment failed.');
-        setTimeout(() => setCreationMessage(''), 3000);
+        setCurriculumAssignMsg(data.success ? 'Curriculum assigned successfully!' : 'Assignment failed.');
+        if (data.success) {
+            setSelectedClass('');
+            setSelectedSubjects([]);
+        }
+        setTimeout(() => setCurriculumAssignMsg(''), 3000);
     };
 
     const handleExcelUpload = async () => {
@@ -118,8 +127,9 @@ function SuperAdminEditor() {
             body: formData
         });
         const data = await res.json();
-        setCreationMessage(data.success ? 'Students uploaded successfully!' : 'Student upload failed.');
-        setTimeout(() => setCreationMessage(''), 3000);
+        setStudentUploadMsg(data.success ? 'Students uploaded successfully!' : 'Student upload failed.');
+        if (data.success) setExcelFile(null);
+        setTimeout(() => setStudentUploadMsg(''), 3000);
     };
 
     return (
@@ -135,9 +145,7 @@ function SuperAdminEditor() {
                 <div className="SuperAdminEditor-table-wrapper">
                     <table>
                         <thead>
-                            <tr>
-                                <th>ID</th><th>Question</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Correct</th><th>Explanation</th>
-                            </tr>
+                            <tr><th>ID</th><th>Question</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Correct</th><th>Explanation</th></tr>
                         </thead>
                         <tbody>
                             {questions.map((q, i) => (
@@ -188,6 +196,7 @@ function SuperAdminEditor() {
                     <input placeholder="School Name" value={newSchoolName} onChange={e => setNewSchoolName(e.target.value)} />
                     <input placeholder="School Logo URL" value={newSchoolLogo} onChange={e => setNewSchoolLogo(e.target.value)} />
                     <button onClick={handleSchoolCreation}>Create School</button>
+                    {schoolCreationMsg && <div className="SuperAdminEditor-message">{schoolCreationMsg}</div>}
                 </div>
 
                 <div>
@@ -217,15 +226,15 @@ function SuperAdminEditor() {
                     </select>
 
                     <button onClick={handleAssignCurriculum}>Assign Subjects</button>
+                    {curriculumAssignMsg && <div className="SuperAdminEditor-message">{curriculumAssignMsg}</div>}
                 </div>
 
                 <div>
                     <h4>Upload Student Data (Excel)</h4>
                     <input type="file" accept=".xlsx, .csv" onChange={e => setExcelFile(e.target.files[0])} />
                     <button onClick={handleExcelUpload}>Upload Students</button>
+                    {studentUploadMsg && <div className="SuperAdminEditor-message">{studentUploadMsg}</div>}
                 </div>
-
-                {creationMessage && <div className="SuperAdminEditor-message">{creationMessage}</div>}
             </div>
         </div>
     );
