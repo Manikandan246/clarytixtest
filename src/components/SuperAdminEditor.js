@@ -24,6 +24,9 @@ function SuperAdminEditor() {
     const [curriculumAssignMsg, setCurriculumAssignMsg] = useState('');
     const [studentUploadMsg, setStudentUploadMsg] = useState('');
 
+    const [selectedSections, setSelectedSections] = useState([]);
+const [sectionCreateMsg, setSectionCreateMsg] = useState('');
+
     useEffect(() => {
         fetch('https://clarytix-backend.onrender.com/superadmin/all-topics')
             .then(res => res.json())
@@ -132,6 +135,22 @@ function SuperAdminEditor() {
         setTimeout(() => setStudentUploadMsg(''), 3000);
     };
 
+    const handleCreateSections = async () => {
+    const res = await fetch('https://clarytix-backend.onrender.com/superadmin/create-sections', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            schoolId: Number(selectedSchoolId),
+            className: selectedClass,
+            sections: selectedSections
+        })
+    });
+    const data = await res.json();
+    setSectionCreateMsg(data.success ? 'Sections created successfully!' : 'Section creation failed.');
+    if (data.success) setSelectedSections([]);
+    setTimeout(() => setSectionCreateMsg(''), 3000);
+};
+
     return (
         <div className="SuperAdminEditor-container">
             {/* Section 1: Question Editor */}
@@ -228,6 +247,38 @@ function SuperAdminEditor() {
                     <button onClick={handleAssignCurriculum}>Assign Subjects</button>
                     {curriculumAssignMsg && <div className="SuperAdminEditor-message">{curriculumAssignMsg}</div>}
                 </div>
+
+                {/* Section 4: Create Sections */}
+<div>
+    <h4>Create Sections</h4>
+    <label>Select School:</label>
+    <select value={selectedSchoolId} onChange={e => setSelectedSchoolId(e.target.value)}>
+        <option value="">Select School</option>
+        {schools.map(s => (<option key={s.id} value={s.id}>{s.name}</option>))}
+    </select>
+
+    <label>Select Class:</label>
+    <select value={selectedClass} onChange={e => setSelectedClass(e.target.value)}>
+        <option value="">Select Class</option>
+        {Array.from({ length: 8 }, (_, i) => `Class ${i + 5}`).map(c => (
+            <option key={c} value={c}>{c}</option>
+        ))}
+    </select>
+
+    <label>Select Sections:</label>
+    <select multiple value={selectedSections} onChange={(e) => {
+        const options = Array.from(e.target.selectedOptions, option => option.value);
+        setSelectedSections(options);
+    }}>
+        {['A','B','C','D','E','F','G','H','I','J'].map(section => (
+            <option key={section} value={section}>{section}</option>
+        ))}
+    </select>
+
+    <button onClick={handleCreateSections}>Create Sections</button>
+    {sectionCreateMsg && <div className="SuperAdminEditor-message">{sectionCreateMsg}</div>}
+</div>
+
 
                 <div>
                     <h4>Upload Student Data (Excel)</h4>
