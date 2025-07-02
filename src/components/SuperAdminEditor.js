@@ -1,4 +1,4 @@
-// Full updated SuperAdminEditor.js with Section Creation
+// Fully updated SuperAdminEditor.js with all 4 sections
 import React, { useEffect, useState } from 'react';
 import './SuperAdminEditor.css';
 
@@ -63,9 +63,6 @@ function SuperAdminEditor() {
 
     return (
         <div className="SuperAdminEditor-container">
-            {/* previous sections remain unchanged */}
-
-            {/* Section 4: Section Creation */}
             <div className="sc-section-creator">
                 <h2>Create Sections for Class</h2>
                 <label>Select School:</label>
