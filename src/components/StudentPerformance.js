@@ -87,7 +87,7 @@ function StudentPerformance() {
                                 <th>Topic</th>
                                 <th>Score %</th>
                                 <th>Class Avg % </th>
-                                <th>Highest % Score</th>
+                                <th>Highest Score %</th>
                             </tr>
                         </thead>
                         <tbody>
