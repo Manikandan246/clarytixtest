@@ -96,7 +96,7 @@ function AdminPerformancePage() {
         return <div>Loading metrics...</div>;
     }
 
-    const scoreBuckets = ['0%-20%', '21%-40%', '41%-60%', '61%-80%', '81%-100%'];
+    const scoreBuckets = ['0-20', '21-40', '41-60', '61-80', '81-100'];
     const bucketCounts = metrics.scoreDistribution;
 
     const leaderboardNames = metrics.leaderboard.map(entry => entry.studentName);
