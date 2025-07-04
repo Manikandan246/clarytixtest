@@ -236,6 +236,43 @@ return (
         </div>
       </div>
 
+      
+      {/* Track Performance Student Wise */}
+      <div className="card student-card">
+        <h3 className="card-title">Track Performance Student Wise</h3>
+        <div className="dropdown-row">
+          <select className="dropdown" value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
+            <option value="">Class</option>
+            {Array.from({ length: 8 }, (_, i) => (
+              <option key={i + 5} value={`Class ${i + 5}`}>{`Class ${i + 5}`}</option>
+            ))}
+          </select>
+          {sections.length > 0 && (
+            <select className="dropdown" value={selectedSectionId} onChange={(e) => setSelectedSectionId(e.target.value)}>
+              <option value="">Section</option>
+              {sections.map(sec => (
+                <option key={sec.id} value={sec.id}>{sec.section_name}</option>
+              ))}
+            </select>
+          )}
+          <select className="dropdown" value={selectedStudent} onChange={(e) => setSelectedStudent(e.target.value)}>
+            <option value="">Student</option>
+            {students.map(student => (
+              <option key={student.id} value={student.id}>{student.username}</option>
+            ))}
+          </select>
+          <select className="dropdown" value={selectedStudentSubject} onChange={(e) => setSelectedStudentSubject(e.target.value)}>
+            <option value="">Subject</option>
+            {studentSubjects.map(sub => (
+              <option key={sub.id} value={sub.id}>{sub.name}</option>
+            ))}
+          </select>
+          <button className="track-btn" disabled={!selectedStudent || !selectedStudentSubject} onClick={handleTrackStudentWise}>
+            Track Performance
+          </button>
+        </div>
+      </div>
+
       {/* View Questions */}
       <div className="card view-questions-card">
         <h3 className="card-title">View Questions</h3>
@@ -278,41 +315,6 @@ return (
         </div>
       </div>
 
-      {/* Track Performance Student Wise */}
-      <div className="card student-card">
-        <h3 className="card-title">Track Performance Student Wise</h3>
-        <div className="dropdown-row">
-          <select className="dropdown" value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
-            <option value="">Class</option>
-            {Array.from({ length: 8 }, (_, i) => (
-              <option key={i + 5} value={`Class ${i + 5}`}>{`Class ${i + 5}`}</option>
-            ))}
-          </select>
-          {sections.length > 0 && (
-            <select className="dropdown" value={selectedSectionId} onChange={(e) => setSelectedSectionId(e.target.value)}>
-              <option value="">Section</option>
-              {sections.map(sec => (
-                <option key={sec.id} value={sec.id}>{sec.section_name}</option>
-              ))}
-            </select>
-          )}
-          <select className="dropdown" value={selectedStudent} onChange={(e) => setSelectedStudent(e.target.value)}>
-            <option value="">Student</option>
-            {students.map(student => (
-              <option key={student.id} value={student.id}>{student.username}</option>
-            ))}
-          </select>
-          <select className="dropdown" value={selectedStudentSubject} onChange={(e) => setSelectedStudentSubject(e.target.value)}>
-            <option value="">Subject</option>
-            {studentSubjects.map(sub => (
-              <option key={sub.id} value={sub.id}>{sub.name}</option>
-            ))}
-          </select>
-          <button className="track-btn" disabled={!selectedStudent || !selectedStudentSubject} onClick={handleTrackStudentWise}>
-            Track Performance
-          </button>
-        </div>
-      </div>
 
       {/* Quiz Count */}
       <div className="card view-count-card">
