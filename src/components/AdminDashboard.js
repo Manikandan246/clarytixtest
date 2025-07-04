@@ -221,7 +221,7 @@ return (
           <select className="dropdown" value={selectedChapterId} onChange={(e) => setSelectedChapterId(e.target.value)}>
             <option value="">Chapter</option>
             {chapters.map(ch => (
-              <option key={ch.id} value={ch.id}>{ch.name}</option>
+              <option key={ch.id} value={ch.id}>{ch.chapter_name}</option>
             ))}
           </select>
           <select className="dropdown" value={selectedTopicId} onChange={(e) => setSelectedTopicId(e.target.value)}>
@@ -300,7 +300,7 @@ return (
           <select className="dropdown" value={selectedViewChapterId} onChange={(e) => setSelectedViewChapterId(e.target.value)}>
             <option value="">Chapter</option>
             {viewChapters.map(ch => (
-              <option key={ch.id} value={ch.id}>{ch.name}</option>
+              <option key={ch.id} value={ch.id}>{ch.chapter_name}</option>
             ))}
           </select>
           <select className="dropdown" value={selectedViewTopicId} onChange={(e) => setSelectedViewTopicId(e.target.value)}>
