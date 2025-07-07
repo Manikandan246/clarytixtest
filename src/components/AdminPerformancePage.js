@@ -98,6 +98,9 @@ function AdminPerformancePage() {
 
     const scoreBuckets = ['0-20', '21-40', '41-60', '61-80', '81-100'];
     const bucketCounts = metrics.scoreDistribution;
+    const topFive = metrics.leaderboard
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 5);
 
     const leaderboardNames = metrics.leaderboard.map(entry => entry.studentName);
     const leaderboardScores = metrics.leaderboard.map(entry => entry.score);
