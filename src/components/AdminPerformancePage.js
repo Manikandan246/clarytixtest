@@ -102,8 +102,8 @@ function AdminPerformancePage() {
   .sort((a, b) => b.score - a.score)
   .slice(0, 5);
 
-    const leaderboardNames = metrics.leaderboard.map(entry => entry.studentName);
-    const leaderboardScores = metrics.leaderboard.map(entry => entry.score);
+    const leaderboardNames = topFive.leaderboard.map(entry => entry.studentName);
+    const leaderboardScores = topFive.leaderboard.map(entry => entry.score);
 
     function formatSeconds(seconds) {
         if (!seconds || isNaN(seconds)) return '0m 0s';
