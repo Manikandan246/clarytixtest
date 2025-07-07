@@ -98,13 +98,15 @@ function AdminPerformancePage() {
 
     const scoreBuckets = ['0-20', '21-40', '41-60', '61-80', '81-100'];
     const bucketCounts = metrics.scoreDistribution;
-    const topFive = metrics.leaderboard
-  .sort((a, b) => b.score - a.score)
+  const leaderboardRaw = metrics.leaderboard || [];
+
+const topFive = leaderboardRaw
+  .slice()
+  .sort((a, b) => Number(b.score) - Number(a.score))
   .slice(0, 5);
 
-    const leaderboardNames = topFive.leaderboard.map(entry => entry.studentName);
-    const leaderboardScores = topFive.leaderboard.map(entry => entry.score);
-
+const leaderboardNames = topFive.map(entry => entry.studentName);
+const leaderboardScores = topFive.map(entry => entry.score);
     function formatSeconds(seconds) {
         if (!seconds || isNaN(seconds)) return '0m 0s';
         const mins = Math.floor(seconds / 60);
