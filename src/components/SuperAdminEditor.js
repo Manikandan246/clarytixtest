@@ -242,15 +242,7 @@ const handleCreateChapter = async () => {
         setTimeout(() => setUploadMessage(''), 3000);
     };
 
-    const fetchTopics = async (cls, subjectId) => {
-  const res = await fetch(`https://clarytix-backend.onrender.com/superadmin/topics?class=${cls}&subjectId=${subjectId}`);
-  const data = await res.json();
-  if (data.success) {
-    setFilteredTopics(data.topics);
-    setSelectedTopicsForSchool([]); // clear old selections
-  }
-};
-
+  
 
 
 
